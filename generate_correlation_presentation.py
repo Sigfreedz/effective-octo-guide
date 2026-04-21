@@ -211,7 +211,7 @@ def build_presentation(output_path: Path):
     formula.fill.fore_color.rgb = LIGHT_BLUE
     formula.line.color.rgb = ACCENT
     f = formula.text_frame.paragraphs[0]
-    f.text = "r = Σ[(x - x̄)(y - ȳ)] / √(Σ(x - x̄)² Σ(y - ȳ)²)"
+    f.text = "r = SUM[(x - x_bar)(y - y_bar)] / sqrt(SUM(x - x_bar)^2 * SUM(y - y_bar)^2)"
     f.font.size = Pt(22)
     f.font.bold = True
     f.font.color.rgb = BLUE
@@ -235,15 +235,15 @@ def build_presentation(output_path: Path):
         "Hypothesis Testing in Correlation",
         [
             "Hypothesis testing checks if observed r is statistically real.",
-            "H₀: r = 0 (no linear relationship in population).",
-            "H₁: r ≠ 0 (there is a linear relationship).",
+            "H0: r = 0 (no linear relationship in population).",
+            "H1: r != 0 (there is a linear relationship).",
             "Choose significance level α (commonly 0.05).",
             "Goal: decide whether evidence against H₀ is strong enough.",
         ],
     )
     box1 = slide.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE, Inches(7.2), Inches(2.0), Inches(2.4), Inches(1.0))
     box2 = slide.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE, Inches(10.0), Inches(2.0), Inches(2.4), Inches(1.0))
-    for box, text in [(box1, "H₀: r = 0"), (box2, "H₁: r ≠ 0")]:
+    for box, text in [(box1, "H0: r = 0"), (box2, "H1: r != 0")]:
         box.fill.solid()
         box.fill.fore_color.rgb = LIGHT_BLUE
         box.line.color.rgb = ACCENT
@@ -292,7 +292,7 @@ def build_presentation(output_path: Path):
             "Used when testing significance of Pearson’s r.",
             "Depends on r and sample size n.",
             "Degrees of freedom: n - 2.",
-            "Large |t| values provide stronger evidence against H₀.",
+            "Large |t| values provide stronger evidence against H0.",
         ],
     )
     tbox = slide.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE, Inches(7.0), Inches(2.0), Inches(5.7), Inches(1.2))
@@ -317,7 +317,7 @@ def build_presentation(output_path: Path):
             "Example: r = 0.62, n = 25, α = 0.05 (two-tailed).",
             "Compute t ≈ 3.79 and df = 23.",
             "Critical value ≈ ±2.07 at α = 0.05.",
-            "Since |3.79| > 2.07, reject H₀.",
+            "Since |3.79| > 2.07, reject H0.",
             "Conclusion: correlation is statistically significant.",
         ],
     )
@@ -326,7 +326,7 @@ def build_presentation(output_path: Path):
     sample.fill.fore_color.rgb = LIGHT_BLUE
     sample.line.color.rgb = ACCENT
     pp = sample.text_frame.paragraphs[0]
-    pp.text = "Quick calculation:\n t = 0.62 × √23 / √(1 - 0.3844)\n t ≈ 3.79"
+    pp.text = "Quick calculation:\n t = 0.62 * sqrt(23) / sqrt(1 - 0.3844)\n t ~= 3.79"
     pp.font.size = Pt(20)
     pp.font.color.rgb = BLUE
 
